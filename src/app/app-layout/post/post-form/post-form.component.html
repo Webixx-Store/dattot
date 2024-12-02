@@ -1,0 +1,62 @@
+<div class="page-content">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <div class="card shadow-lg border-0">
+        <div class="card-body p-5">
+          <form (ngSubmit)="submitForm()">
+            <div class="mb-4">
+              <label for="title" class="form-label fw-bold">Title</label>
+              <input
+                type="text"
+                id="title"
+                class="form-control form-control-lg"
+                placeholder="Please enter the title"
+                [(ngModel)]="blog.title"
+                name="title"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="author" class="form-label fw-bold">Author</label>
+              <input
+                type="text"
+                id="author"
+                class="form-control form-control-lg"
+                placeholder="Please enter the Author"
+                [(ngModel)]="blog.author"
+                name="author"
+                required
+              />
+            </div>
+            <div class="mb-4">
+              <label for="category" class="form-label fw-bold">Category</label>
+              <select
+                id="category"
+                class="form-select form-select-lg"
+                [(ngModel)]="blog.category"
+                name="category"
+                required
+              >
+                <option value="" disabled selected>Select Category</option>
+                <option value="technology">Technology</option>
+                <option value="lifestyle">Lifestyle</option>
+                <option value="education">Education</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="content" class="form-label fw-bold">Content</label>
+              <ckeditor
+                [(ngModel)]="blog.content"
+                name="content"
+                [editor]="Editor"
+                [config]="editorConfig"
+                (ready)="onReady($event)"
+              ></ckeditor>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100">Save Blog</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

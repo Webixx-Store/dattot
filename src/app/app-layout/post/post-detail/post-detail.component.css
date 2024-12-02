@@ -1,0 +1,36 @@
+.product-description {
+  font-family: 'Times New Roman', serif;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.product-description img {
+  max-width: 100%;
+  height: auto; /* Đảm bảo hình ảnh có tỷ lệ chính xác */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: block; /* Đảm bảo hình ảnh không có khoảng trắng xung quanh */
+  margin-left: auto;
+  margin-right: auto; /* Căn giữa hình ảnh */
+}
+
+.product-description h3,
+.product-description p,
+.product-description figure {
+  margin: 0 0 1em; /* Giảm khoảng cách dưới */
+}
+
+.product-description figure {
+  text-align: center; /* Căn giữa các hình ảnh và caption nếu có */
+}
+
+.product-description strong {
+  color: #2c3e50;
+}
+
+.blog-title {
+  font-size: 2rem; /* Kích thước chữ cho tiêu đề */
+  font-weight: bold; /* Đậm */
+  margin-bottom: 1rem; /* Khoảng cách dưới tiêu đề */
+  color: #333; /* Màu chữ */
+}
