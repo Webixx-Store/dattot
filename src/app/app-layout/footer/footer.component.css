@@ -1,0 +1,7 @@
+footer a {
+  color: #f8f9fa; /* Màu sáng cho liên kết */
+}
+
+footer a:hover {
+  color: #007bff; /* Màu khi di chuột */
+}

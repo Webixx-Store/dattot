@@ -1,0 +1,40 @@
+/* Đảm bảo slider chiếm hết chiều cao */
+.swiper-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Slide có chiều cao cố định */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Chiều cao hình ảnh sẽ chiếm hết chiều cao của slide */
+.swiper-slide img {
+  width: 100%;
+  height: 100%; /* Đảm bảo hình ảnh phủ toàn bộ slide */
+  object-fit: cover; /* Đảm bảo hình ảnh được cắt vừa vặn */
+}
+
+/* Tăng chiều cao cho các thiết bị di động và máy tính bảng */
+@media (max-width: 768px) {
+  .swiper-slide {
+    height: 400px; /* Tăng chiều cao slide cho tablet và mobile */
+  }
+
+  .swiper-slide img {
+    height: 400px; /* Tăng chiều cao hình ảnh cho tablet và mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .swiper-slide {
+    height: 350px; /* Điều chỉnh chiều cao cho màn hình nhỏ hơn (mobile) */
+  }
+
+  .swiper-slide img {
+    height: 350px; /* Chiều cao hình ảnh cho thiết bị mobile nhỏ */
+  }
+}

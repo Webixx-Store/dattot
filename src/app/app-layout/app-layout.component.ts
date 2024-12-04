@@ -19,7 +19,7 @@ export class AppLayoutComponent implements OnInit {
   constructor(private http:HttpService    , private overlayLoadingStore: Store<OverlayLoadingState>) {
 
     this.show$ = this.overlayLoadingStore.select(getLoading);
-    
+
 
   }
 
@@ -29,6 +29,6 @@ export class AppLayoutComponent implements OnInit {
     })
   }
 
-  
+
 
 }

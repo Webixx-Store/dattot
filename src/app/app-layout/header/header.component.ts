@@ -39,22 +39,30 @@ export class HeaderComponent implements OnInit {
   menus: Menu[] = [
 
     {
-      label: 'About',
-      items: [
-        { label: 'About Company', route: '/about/about-company' ,
-        },
-        { label: 'About Story', route: '/about/about-story' },
-      ]
+      label: 'Nhà đất bán',
+      kind: 'mu',
+      route:''
     },
 
     {
-      label:'Contact',
-      route:'/about/contact',
+      kind: 'mu',
+      label:'Nhà cho thuê',
+      route:'',
     },
-
     {
-      label:'Blog',
-      route:'/blog/blogs',
+      kind: 'mu',
+      label:'Dự án',
+      route:'',
+    },
+    {
+      kind: 'mu',
+      label:'Wiki Bất Động Sản',
+      route:'',
+    },
+    {
+      kind: 'mu',
+      label:'Phân tích đánh giá',
+      route:'',
     }
   ];
   currentPath: string = '';
@@ -108,6 +116,7 @@ export class HeaderComponent implements OnInit {
     if(role == 'admin'){
       this.menus.push({
         label: 'Administrator',
+        kind: 'mu',
         items: [
           { label: 'Product Manager', route: '',  items : [
             {label : "Edit Product" , route: '/shopping/addProduct' },

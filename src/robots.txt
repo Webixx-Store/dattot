@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /admin/
+Allow: /
+Sitemap: https://dattot-vn.web.app/sitemap.xml
