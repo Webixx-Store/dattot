@@ -21,8 +21,8 @@ const routes: Routes = [
 
        { path: '', component: role == 'admin' ? OrderAnalysicComponent : HomePageComponent },
        { path: 'auth', loadChildren: authModule },
-       { path: 'shopping',canActivate : [AuthGuardService]  , loadChildren: orderModule },
-       { path: 'blog', loadChildren: postModule },
+       { path: 'du-an'  , loadChildren: orderModule },
+       { path: 'tin-tuc', loadChildren: postModule },
        { path: 'trade',canActivate : [AuthGuardService]  , loadChildren: trade },
        { path: 'about'  , loadChildren: about },
     ]

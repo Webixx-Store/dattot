@@ -52,12 +52,12 @@ export class HeaderComponent implements OnInit {
     {
       kind: 'mu',
       label:'Dự án',
-      route:'',
+      route:'/du-an/danh-sach',
     },
     {
       kind: 'mu',
       label:'Wiki Bất Động Sản',
-      route:'',
+      route:'/tin-tuc',
     },
     {
       kind: 'mu',

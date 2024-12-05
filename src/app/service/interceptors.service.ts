@@ -12,17 +12,12 @@ export class Interceptors implements HttpInterceptor {
   constructor(private router: Router) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(
-      catchError((error: HttpErrorResponse) => {
-
-        if (error.status === 403) {
-          // Nếu lỗi là 403, chuyển hướng tới trang đăng nhập
-          if(Number(AuthDetail.getLoginedInfo()?.logoutDate) <= Number(DateUtils.getCurrFullDateTimeStrBlank(new Date()))){
-            this.router.navigate(['/login']);
-          }
-        }
-        return throwError(error);
-      })
-    );
+    // Add headers for crawlers
+    const modifiedRequest = request.clone({
+      setHeaders: {
+        'X-Robots-Tag': 'index, follow'
+      }
+    });
+    return next.handle(modifiedRequest);
   }
 }

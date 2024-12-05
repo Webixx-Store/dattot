@@ -37,7 +37,7 @@ export class ProductComponent implements OnInit {
   }
 
   handleLink(){
-    this.router.navigateByUrl("/shopping/detail/" +this.product.id);
+    this.router.navigateByUrl("/du-an/chi-tiet/" +this.product.id);
   }
 
 

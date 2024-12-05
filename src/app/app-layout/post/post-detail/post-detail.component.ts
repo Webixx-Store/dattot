@@ -72,14 +72,30 @@ export class PostDetailComponent implements OnInit {
   }
 
   updateMetaTags() {
-    // Set the page title
+    if (!this.blog.title || !this.imgUrl) return;
+
+    // Basic META
     this.title.setTitle(this.blog.title);
-    // Update Open Graph meta tags
-    this.meta.updateTag({ name: 'description', content: this.blog.title});
-    this.meta.updateTag({ name: 'og:title', content: this.blog.title });
-    this.meta.updateTag({ name: 'og:description', content: this.blog.title});
-    this.meta.updateTag({ name: 'og:image', content: this.imgUrl });  // Ensure you have an image URL in the blog model
-    this.meta.updateTag({ name: 'og:url', content: window.location.href });
+    this.meta.updateTag({ name: 'description', content: this.blog.title });
+    
+    this.meta.updateTag({ property: 'title', content: this.blog.title }); // Sửa name thành property
+    this.meta.updateTag({ property: 'description', content: this.blog.title });
+    this.meta.updateTag({ property: 'image', content: this.imgUrl });
+    this.meta.updateTag({ property: 'url', content: window.location.href });
+    this.meta.updateTag({ property: 'type', content: 'article' });
+
+    // Open Graph
+    this.meta.updateTag({ property: 'og:title', content: this.blog.title }); // Sửa name thành property
+    this.meta.updateTag({ property: 'og:description', content: this.blog.title });
+    this.meta.updateTag({ property: 'og:image', content: this.imgUrl });
+    this.meta.updateTag({ property: 'og:url', content: window.location.href });
+    this.meta.updateTag({ property: 'og:type', content: 'article' });
+
+    // Twitter Cards
+    this.meta.updateTag({ name: 'twitter:card', content: 'summary_large_image' });
+    this.meta.updateTag({ name: 'twitter:title', content: this.blog.title });
+    this.meta.updateTag({ name: 'twitter:description', content: this.blog.title });
+    this.meta.updateTag({ name: 'twitter:image', content: this.imgUrl });
   }
 
 }
