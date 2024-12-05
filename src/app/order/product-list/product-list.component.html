@@ -6,7 +6,7 @@
           <div class="row">
             <ng-container *ngIf="items.length > 0; else noData">
               <ng-container *ngFor="let product of items">
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 project-item">
+                <div class="col-12 col-md-6 col-lg-4 col-xl-3 project-item mb-4">
                   <div class="project-card">
                     <img [src]="apiUrl + '/' + product.img" alt="Project Image" class="img-fluid">
                     <div class="project-info">
