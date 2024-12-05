@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://dattot-vn.web.app/</loc>
-    <lastmod>2024-12-03</lastmod>
+    <lastmod>2024-12-05</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://dattot-vn.web.app/about</loc>
-    <lastmod>2024-12-01</lastmod>
+    <loc>https://dattot-vn.web.app/du-an/danh-sach</loc>
+    <lastmod>2024-12-05</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://dattot-vn.web.app/contact</loc>
-    <lastmod>2024-11-28</lastmod>
+    <loc>https://dattot-vn.web.app/tin-tuc</loc>
+    <lastmod>2024-12-05</lastmod>
     <priority>0.6</priority>
   </url>
 </urlset>
