@@ -13,6 +13,7 @@ import { getProducts, ProductState } from 'src/app/selectors/product.selector';
 import { CartService } from 'src/app/service/cart-service.service';
 import { ProductService } from 'src/app/service/product.service';
 import { environment } from 'src/environments/environment';
+import { CommonUtils } from 'src/app/common/util/common-utils';
 
 @Component({
   selector: 'app-product-detail',
@@ -70,6 +71,11 @@ export class ProductDetailComponent implements OnInit {
 
   getSanitizedDescription(): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(this.product.description);
+  }
+
+  getTextUpdate(updateAt:string){
+    return CommonUtils.getUpdateTimeMessage(updateAt);
+
   }
 
 }

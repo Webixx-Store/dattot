@@ -1,32 +1,29 @@
 <div class="page-content">
   <div class="container">
     <div class="row">
-      <div class="col-lg-9 col-xl-4-5col">
+      <!-- Cột hiển thị sản phẩm -->
+      <div class="col-lg-9 col-xl-8 offset-xl-2 col-md-12">
         <div class="real-estate-projects mb-3">
           <div class="row">
+            <!-- Kiểm tra nếu có dữ liệu -->
             <ng-container *ngIf="items.length > 0; else noData">
               <ng-container *ngFor="let product of items">
                 <div class="col-12 col-md-6 col-lg-4 col-xl-3 project-item mb-4">
-                  <div class="project-card">
-                    <img [src]="apiUrl + '/' + product.img" alt="Project Image" class="img-fluid">
-                    <div class="project-info">
-                      <h5 class="project-title">{{ product.name }}</h5>
-                      <p class="project-location"></p>
-                      <button class="btn btn-primary" [routerLink]="['/du-an/chi-tiet', product.id]">Xem Chi Tiết</button>
-                    </div>
-                  </div>
+                  <div [product]="product"></div>
                 </div>
               </ng-container>
             </ng-container>
           </div><!-- End .row -->
         </div><!-- End .real-estate-projects -->
-
+ 
+        <!-- Nếu không có dữ liệu -->
         <ng-template #noData>
           <div class="col-12 text-center">
             <h5>Không có dữ liệu dự án</h5>
           </div>
         </ng-template><!-- End .noData -->
 
+        <!-- Phân trang -->
         <app-paging (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
       </div><!-- End .col-lg-9 -->
     </div><!-- End .row -->

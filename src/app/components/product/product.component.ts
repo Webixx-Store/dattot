@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { AuthDetail } from 'src/app/common/util/auth-detail';
 import { ProductModel } from 'src/app/model/product.model';
+import { CommonUtils } from 'src/app/common/util/common-utils';
 
 @Component({
   selector: '[product]',
@@ -39,6 +40,11 @@ export class ProductComponent implements OnInit {
   handleLink(){
     this.router.navigateByUrl("/du-an/chi-tiet/" +this.product.id);
   }
+
+  getUpdateTimeMessage(updatedAt: string){
+    return CommonUtils.getUpdateTimeMessage(updatedAt);
+  }
+  
 
 
 

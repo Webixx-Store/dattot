@@ -9,6 +9,7 @@ import { OrderTrackingComponent } from './order-tracking/order-tracking.componen
 import { OrderAnalysicComponent } from './order-analysic/order-analysic.component';
 import { WishListComponent } from './wish-list/wish-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { AddCategoryComponent } from './add-category/add-category.component';
 
 const routes: Routes = [
   {path:'checkout' , component:CheckoutComponent},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path:'order-detail' , component:OrderDetailComponent},
   {path:'order-tracking' , component:OrderTrackingComponent},
   {path:'order-analysic' , component:OrderAnalysicComponent},
+  {path:'them-danh-muc' , component:AddCategoryComponent},
   {path:'' , component:ShoesProductListComponent}
 ];
 

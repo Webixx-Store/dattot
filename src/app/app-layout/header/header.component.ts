@@ -115,24 +115,19 @@ export class HeaderComponent implements OnInit {
 
     if(role == 'admin'){
       this.menus.push({
-        label: 'Administrator',
+        label: 'Quản trị trang',
         kind: 'mu',
         items: [
-          { label: 'Product Manager', route: '',  items : [
-            {label : "Edit Product" , route: '/shopping/addProduct' },
-            {label : "New Product" , route: '/shopping/newProduct' }
+          { label: 'Quản lý dự án', route: '',  items : [
+            {label : "Chỉnh sửa thêm mới dự án" , route: '/du-an/sua' }
           ] },
           {
-            label: 'Order Manager' , route: '' , items : [
-             {label: 'Order Tracking', route: '/shopping/order-tracking' },
-             {label: 'Order Analysic', route: '/shopping/order-analysic' },
-             {label: 'Order Detail', route: '/shopping/order-detail' },
+            label: 'Quản lý tin' , route: '' , items : [
+             {label: 'Chỉnh sửa thêm mới tin', route: '/tin-tuc/chinh-sua' },
             ]
           },
           {
-            label: 'Blog Manager' , route: '' , items : [
-             {label: 'New Blog', route: '/blog/blog-edit' },
-            ]
+            label: 'Đăng ký danh mục' , route: 'du-an/them-danh-muc' ,
           }
         ]
       })

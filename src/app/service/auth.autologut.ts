@@ -21,14 +21,21 @@ export class AutologoutService {
    */
   initInterval() {
     this.ngZone.runOutsideAngular(() => {
+      this.checkLogoutCondition();
       setInterval(() => {
-          if(Number(AuthDetail.getLoginedInfo()?.logoutDate) <= Number(DateUtils.getCurrFullDateTimeStrBlank(new Date()))){
-            AuthDetail.actionLogOut();
-            window.location.href = '/';
-          }
-      }, 1000*60*30);
+        this.checkLogoutCondition()
+      }, 1000*60*15);
     })
   }
+
+  private checkLogoutCondition() {
+    if (Number(AuthDetail.getLoginedInfo()?.logoutDate) <= Number(DateUtils.getCurrFullDateTimeStrBlank(new Date()))) {
+      AuthDetail.actionLogOut();
+      window.location.href = '/';
+    }
+  }
+
+  // check to init 
 
 
    /**

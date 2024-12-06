@@ -18,4 +18,7 @@ export interface ProductModel
   rating:number;
   rewiewId:string;
   sliders:string[];
+  location:string ;
+  updateAt:string;
+  keyword:string;
 }

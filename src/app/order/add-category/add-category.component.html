@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="card shadow-lg border-0">
+      <div class="card-body p-5">
+        <form (ngSubmit)="onSubmit()">
+          <div class="mb-4">
+            <label for="mainCategory" class="form-label fw-bold">Danh mục chính</label>
+            <input 
+              type="text" 
+              id="mainCategory" 
+              class="form-control form-control-lg" 
+              [(ngModel)]="category.mainCategory" 
+              name="mainCategory" 
+              required 
+              placeholder="Nhập danh mục chính"
+            />
+          </div>
+  
+          <div class="sub-categories">
+            <div *ngFor="let subCategory of category.subCategories; let i = index" class="mb-3">
+              <label for="subCategory-{{ i }}" class="form-label fw-bold">Danh mục con {{ i + 1 }}</label>
+              <div class="input-group">
+                <input 
+                  type="text" 
+                  class="form-control" 
+                  [(ngModel)]="subCategory.name" 
+                  name="subCategory-{{ i }}" 
+                  required 
+                  placeholder="Nhập danh mục con"
+                />
+                <button 
+                  type="button" 
+                  class="btn btn-outline-danger" 
+                  (click)="removeSubCategory(i)">
+                   XÓA DANH MỤC
+                </button>
+              </div>
+            </div>
+          </div>
+  
+          <button 
+            type="button" 
+            class="btn btn-outline-primary" 
+            (click)="addSubCategory()">
+            Thêm Danh Mục Con
+          </button>
+  
+          <button type="submit" class="btn btn-primary btn-lg w-100 mt-4">
+            Lưu Danh Mục
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

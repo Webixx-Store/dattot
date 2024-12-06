@@ -39,12 +39,16 @@ export class AddProductComponent implements OnInit {
   slider2: any = '';
   slider3: any = '';
   slider4: any = '';
+  slider5: any = '';
+  slider6: any = '';
 
   imgName: any = '';
   sliderName1: any = '';
   sliderName2: any = '';
   sliderName3: any = '';
   sliderName4: any = '';
+  sliderName5: any = '';
+  sliderName6: any = '';
   result$ =  new Observable <ResultModel>();
 
   config: TableConfig = {
@@ -133,6 +137,14 @@ export class AddProductComponent implements OnInit {
         this.slider4 = file;
         this.sliderName4 = file.name;
         break;
+      case 'slider5':
+        this.slider5 = file;
+        this.sliderName5 = file.name;
+        break;
+      case 'slider6':
+        this.slider6 = file;
+        this.sliderName6 = file.name;
+        break;
       default:
         break;
     }
@@ -194,6 +206,13 @@ export class AddProductComponent implements OnInit {
        }
        if(ValidationUtil.isNotNullAndNotEmpty(this.sliderName4)){
         slidersName.push(this.sliderName4.replace(this.apiUrl + '/' ,'' ))
+       }
+
+       if(ValidationUtil.isNotNullAndNotEmpty(this.sliderName5)){
+        slidersName.push(this.sliderName5.replace(this.apiUrl + '/' ,'' ))
+       }
+       if(ValidationUtil.isNotNullAndNotEmpty(this.sliderName6)){
+        slidersName.push(this.sliderName6.replace(this.apiUrl + '/' ,'' ))
        }
 
        let img = '';
@@ -258,6 +277,8 @@ export class AddProductComponent implements OnInit {
     this.slider2 = '';
     this.slider3 = '';
     this.slider4 = '';
+    this.slider5 = '';
+    this.slider6 = '';
 
     // Reset the file name fields
     this.imgName = '';
@@ -265,6 +286,9 @@ export class AddProductComponent implements OnInit {
     this.sliderName2 = '';
     this.sliderName3 = '';
     this.sliderName4 = '';
+    this.sliderName5 = '';
+    this.sliderName6 = '';
+    
   }
 
   openPopup(): void {
