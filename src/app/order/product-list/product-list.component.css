@@ -1,0 +1,51 @@
+/* General wrapper cho từng dự án */
+.product-wrapper {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+  background-color: #fff;
+  padding: 10px;
+  height: 100%;
+}
+
+/* Hiệu ứng hover */
+.product-wrapper:hover {
+  transform: translateY(-5px);
+}
+
+/* Tối ưu giao diện sản phẩm */
+.product-item {
+  display: block;
+  height: 100%;
+}
+
+/* Tối ưu hóa ảnh trong mỗi sản phẩm */
+.card-img-top {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Thêm các kiểu hiển thị trong thông tin sản phẩm */
+.card-title {
+  font-size: 1rem;
+  color: #333;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.btn-container {
+  margin-top: 10px;
+}
+
+/* Hiệu ứng hiển thị và responsive */
+@media (max-width: 768px) {
+  .product-wrapper {
+    height: auto;
+  }
+}

@@ -1,31 +1,34 @@
-<div class="page-content">
-  <div class="container">
-    <div class="row">
-      <!-- Cột hiển thị sản phẩm -->
-      <div class="col-lg-9 col-xl-8 offset-xl-2 col-md-12">
-        <div class="real-estate-projects mb-3">
-          <div class="row">
-            <!-- Kiểm tra nếu có dữ liệu -->
-            <ng-container *ngIf="items.length > 0; else noData">
-              <ng-container *ngFor="let product of items">
-                <div class="col-12 col-md-6 col-lg-4 col-xl-3 project-item mb-4">
-                  <div [product]="product"></div>
+<div class="container my-5">
+  <div class="row">
+    <!-- Cột hiển thị sản phẩm -->
+    <div class="col-lg-9 col-xl-8 offset-xl-2 col-md-12">
+      <div class="real-estate-projects mb-3">
+        <div class="row">
+          <!-- Kiểm tra nếu có dữ liệu -->
+          <ng-container *ngIf="items.length > 0; else noData">
+            <ng-container *ngFor="let product of items">
+              <!-- Thêm class & wrapper đẹp mắt -->
+              <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                <div class="product-wrapper">
+                  <div [product]="product" class="product-item"></div>
                 </div>
-              </ng-container>
+              </div>
             </ng-container>
-          </div><!-- End .row -->
-        </div><!-- End .real-estate-projects -->
- 
+          </ng-container>
+        </div><!-- End .row -->
+
         <!-- Nếu không có dữ liệu -->
         <ng-template #noData>
           <div class="col-12 text-center">
-            <h5>Không có dữ liệu dự án</h5>
+            <h5 class="text-muted">Không có dữ liệu dự án</h5>
           </div>
-        </ng-template><!-- End .noData -->
+        </ng-template>
 
         <!-- Phân trang -->
-        <app-paging (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
-      </div><!-- End .col-lg-9 -->
-    </div><!-- End .row -->
-  </div><!-- End .container -->
-</div><!-- End .page-content -->
+        <div class="pagination-container">
+          <app-paging (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="total"></app-paging>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

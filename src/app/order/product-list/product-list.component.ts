@@ -51,7 +51,7 @@ export class ProductListComponent implements OnInit , OnDestroy , AfterViewInit 
 
 
   page = 0;
-  len  = 6;
+  len  = 24;
   total = 0;
   countRewiew = 0;
   constructor(private productStore : Store<ProductState> ,
