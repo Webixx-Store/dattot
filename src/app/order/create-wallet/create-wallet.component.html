@@ -1,0 +1,28 @@
+<div class="container text-center my-5">
+  <div class="card shadow-sm p-4" style="max-width: 500px; margin: 0 auto;">
+    <div class="card-header bg-primary text-white">
+      <h1 class="mb-0">Tạo Ví Mới</h1>
+    </div>
+    <div class="card-body">
+      <p class="mb-3">Nhấn nút bên dưới để tạo khóa bí mật và địa chỉ ví mới.</p>
+      <button
+        (click)="createWallet()"
+        class="btn btn-success btn-lg"
+        style="padding: 10px 20px; margin-bottom: 20px;"
+      >
+        Tạo Ví
+      </button>
+
+      <div *ngIf="privateKey && walletAddress" class="wallet-info">
+        <div class="alert alert-success" role="alert">
+          <h5 class="text-dark">Khóa Bí Mật (Private Key):</h5>
+          <p><code>{{ privateKey }}</code></p>
+        </div>
+        <div class="alert alert-info" role="alert">
+          <h5 class="text-dark">Địa Chỉ Ví (Wallet Address):</h5>
+          <p><code>{{ walletAddress }}</code></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -10,6 +10,7 @@ import { OrderAnalysicComponent } from './order-analysic/order-analysic.componen
 import { WishListComponent } from './wish-list/wish-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { CreateWalletComponent } from './create-wallet/create-wallet.component';
 
 const routes: Routes = [
   {path:'checkout' , component:CheckoutComponent},
@@ -18,11 +19,12 @@ const routes: Routes = [
   {path:'cart' , component:WishListComponent},
   {path:'them-moi' , component:AddProductComponent},
   {path:'sua' , component:AddProductComponent},
-  {path:'chi-tiet/:product' , component:ProductDetailComponent},
+  {path:'chi-tiet/:product' , component:ProductDetailComponent  , runGuardsAndResolvers: 'always'} ,
   {path:'order-detail' , component:OrderDetailComponent},
   {path:'order-tracking' , component:OrderTrackingComponent},
   {path:'order-analysic' , component:OrderAnalysicComponent},
   {path:'them-danh-muc' , component:AddCategoryComponent},
+  {path:'tao-vi' , component:CreateWalletComponent},
   {path:'' , component:ShoesProductListComponent}
 ];
 

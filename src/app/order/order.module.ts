@@ -27,6 +27,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AddCategoryComponent } from './add-category/add-category.component';
+import { CreateWalletComponent } from './create-wallet/create-wallet.component';
 
 
 
@@ -40,7 +41,8 @@ import { AddCategoryComponent } from './add-category/add-category.component';
     WishListComponent,
     CartComponent,
     ProductListComponent,
-    AddCategoryComponent
+    AddCategoryComponent,
+    CreateWalletComponent
   ],
   imports: [
     CommonModule,

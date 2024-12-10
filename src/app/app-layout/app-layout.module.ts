@@ -24,6 +24,8 @@ import { NgChartsModule } from 'ng2-charts';
 import { QRCodeModule } from 'angularx-qrcode';
 import { WeddingComponent } from '../wedding/wedding.component';
 import { PageHeadingComponent } from './page-heading/page-heading.component';
+import { productFeatureKey, productReducer } from '../reducers/product.reducer';
+import { ProductEffect } from '../effects/product.effect';
 
 @NgModule({
   declarations: [
@@ -50,9 +52,10 @@ import { PageHeadingComponent } from './page-heading/page-heading.component';
     NgxLoadingModule.forRoot({fullScreenBackdrop: true}),
     StoreModule.forFeature(overlayLoadingFeatureKey, overlayLoadingReducer),
     StoreModule.forFeature(headerFeatureKey, headerReducer),
+    StoreModule.forFeature(productFeatureKey, productReducer),
 
     StoreModule.forFeature(coinFeatureKey,coinReducer),
-    EffectsModule.forFeature([CoinEffect])
+    EffectsModule.forFeature([CoinEffect , ProductEffect])
   ]
 })
 export class AppLayoutModule { }

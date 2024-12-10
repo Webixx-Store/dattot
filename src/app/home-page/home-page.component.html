@@ -1,13 +1,20 @@
-
-<div class="mainVisual">
+<!-- Header Slider Section với overlay text -->
+<div class="mainVisual position-relative mb-5">
   <div class="swiper-container">
     <div class="swiper reviewSwiper">
       <div class="swiper-wrapper">
         <ng-container *ngFor="let item of brands; index as i">
           <div class="swiper-slide">
-            <a href="#" class="brand">
-              <img [src]="item.img" [alt]="item.alt" class="swiper-slide-img" />
-            </a>
+            <div class="slider-content position-relative">
+              <img [src]="item.img" [alt]="item.alt" class="swiper-slide-img w-100" style="height: 600px; object-fit: cover;">
+              <div class="slider-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(0,0,0,0.4);">
+                <div class="container text-white">
+                  <h1 class="display-4 fw-bold">Khám phá Bất Động Sản</h1>
+                  <p class="lead">Tìm kiếm ngôi nhà mơ ước của bạn</p>
+                  <a href="#search" class="btn btn-primary btn-lg">Tìm kiếm ngay</a>
+                </div>
+              </div>
+            </div>
           </div>
         </ng-container>
       </div>
@@ -16,183 +23,138 @@
   </div>
 </div>
 
-
-  <div class="mb-3 mb-lg-5"></div><!-- End .mb-3 mb-lg-5 -->
-
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">Danh sách dự án hiện có </h1>
-    <div class="row">
-      <!-- Sản phẩm Đất nền -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Đất nền">
-          <div class="card-body">
-            <h5 class="card-title">Đất Nền Dự Án ABC</h5>
-            <p class="card-text">Đất nền đẹp, diện tích rộng, pháp lý rõ ràng. Liên hệ ngay để biết thêm chi tiết.</p>
-            <p class="card-text"><strong>Giá: 1,500,000 VND/m²</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sản phẩm Căn hộ dịch vụ -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Căn hộ dịch vụ">
-          <div class="card-body">
-            <h5 class="card-title">Căn hộ Dịch vụ XYZ</h5>
-            <p class="card-text">Căn hộ dịch vụ cao cấp, đầy đủ tiện nghi, thích hợp cho người nước ngoài.</p>
-            <p class="card-text"><strong>Giá: 10,000,000 VND/tháng</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sản phẩm Đất nền 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Đất nền">
-          <div class="card-body">
-            <h5 class="card-title">Đất Nền Khu Đô Thị XYZ</h5>
-            <p class="card-text">Vị trí đắc địa, giao thông thuận tiện, đầy đủ cơ sở hạ tầng. Liên hệ để mua ngay.</p>
-            <p class="card-text"><strong>Giá: 1,700,000 VND/m²</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sản phẩm Căn hộ dịch vụ 2 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Căn hộ dịch vụ">
-          <div class="card-body">
-            <h5 class="card-title">Căn hộ Dịch vụ ABC</h5>
-            <p class="card-text">Căn hộ đầy đủ tiện nghi, dịch vụ 24/7, an ninh tốt. Thích hợp cho người làm việc dài hạn.</p>
-            <p class="card-text"><strong>Giá: 12,000,000 VND/tháng</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sản phẩm Đất nền 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Đất nền">
-          <div class="card-body">
-            <h5 class="card-title">Đất Nền Khu Cảnh Quan XYZ</h5>
-            <p class="card-text">Đất nền đẹp với cảnh quan xanh mát, phù hợp cho xây dựng biệt thự nghỉ dưỡng.</p>
-            <p class="card-text"><strong>Giá: 2,000,000 VND/m²</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sản phẩm Căn hộ dịch vụ 3 -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <img src="https://via.placeholder.com/300" class="card-img-top" alt="Căn hộ dịch vụ">
-          <div class="card-body">
-            <h5 class="card-title">Căn hộ Dịch vụ 123</h5>
-            <p class="card-text">Căn hộ hiện đại, tiện nghi đầy đủ, giá cả phải chăng. Liên hệ để thuê ngay.</p>
-            <p class="card-text"><strong>Giá: 8,000,000 VND/tháng</strong></p>
-            <a href="#" class="btn btn-primary">Xem chi tiết</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-3"></div><!-- End .mb-6 -->
-
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Tìm kiếm bất động sản</h2>
-    <form>
-      <div class="row">
-        <div class="col-md-4">
-          <label for="location">Vị trí</label>
-          <input type="text" id="location" class="form-control" placeholder="Nhập khu vực">
-        </div>
-        <div class="col-md-4">
-          <label for="price">Giá</label>
-          <input type="number" id="price" class="form-control" placeholder="Nhập giá tối đa">
-        </div>
-        <div class="col-md-4">
-          <label for="propertyType">Loại bất động sản</label>
-          <select id="propertyType" class="form-control">
-            <option value="land">Đất nền</option>
-            <option value="apartment">Căn hộ</option>
-            <option value="villa">Biệt thự</option>
-          </select>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary mt-3">Tìm kiếm</button>
-    </form>
-  </div>
-
-  <div class="mb-3"></div><!-- End .mb-6 -->
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Về chúng tôi</h2>
-    <div class="row">
-      <div class="col-md-6">
-        <p>Chúng tôi là công ty bất động sản uy tín, với hơn 10 năm kinh nghiệm trong lĩnh vực phát triển và phân phối bất động sản. Chúng tôi cung cấp các dự án đất nền, căn hộ, biệt thự, và nhiều loại hình bất động sản khác tại các vị trí đắc địa trên cả nước.</p>
-      </div>
-      <div class="col-md-6">
-        <img src="https://via.placeholder.com/500" alt="Giới thiệu công ty" class="img-fluid">
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-3"></div><!-- End .mb-6 -->
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Khách hàng & Đối tác</h2>
-    <div class="row">
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/150" alt="Đối tác 1" class="img-fluid">
-      </div>
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/150" alt="Đối tác 2" class="img-fluid">
-      </div>
-      <div class="col-md-4">
-        <img src="https://via.placeholder.com/150" alt="Đối tác 3" class="img-fluid">
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-3"></div><!-- End .mb-6 -->
-
-  <div class="container mt-5">
-    <h2 class="text-center mb-4">Đánh giá của khách hàng</h2>
-    <div class="swiper-container">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="testimonial">
-              <p>"Dịch vụ tuyệt vời, tôi đã mua được một căn hộ như ý. Cảm ơn công ty!"</p>
-              <h5>- Nguyễn Văn A</h5>
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="testimonial">
-              <p>"Môi trường sống tại khu đô thị mà công ty phát triển rất tuyệt vời, yên tĩnh và tiện nghi."</p>
-              <h5>- Trần Thị B</h5>
-            </div>
-          </div>
-          <!-- Thêm nhiều slide đánh giá ở đây -->
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-  </div>
-
-
-
-
-
-
-
-
+<!-- Search Section với thiết kế mới -->
+<section id="search" class="py-5 bg-light mb-5">
   <div class="container">
-      <hr class="mt-1 mb-6">
-  </div><!-- End .container -->
+    <div class="search-box p-4 bg-white rounded shadow-lg" style="margin-top: -50px; position: relative;">
+      <h2 class="text-center mb-4">Tìm Bất Động Sản</h2>
+      <form>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" id="location" placeholder="Vị trí">
+              <label for="location">Vị trí</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-floating">
+              <select class="form-select" id="propertyType">
+                <option value="">Tất cả</option>
+                <option value="land">Đất nền</option>
+                <option value="apartment">Căn hộ</option>
+                <option value="villa">Biệt thự</option>
+              </select>
+              <label for="propertyType">Loại bất động sản</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="minPrice" placeholder="Giá từ">
+              <label for="minPrice">Giá từ</label>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-floating">
+              <input type="number" class="form-control" id="maxPrice" placeholder="Đến giá">
+              <label for="maxPrice">Đến giá</label>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-3">
+          <button type="submit" class="btn btn-primary btn-lg px-5">Tìm kiếm</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
 
+<!-- Featured Properties Section -->
+<section class="featured-properties py-5 mb-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Dự Án Nổi Bật</h2>
+    <div class="row">
+      <ng-container *ngFor="let item of items">
+        <div class="col-md-4 mb-4">
+          <div class="card property-card h-100 shadow-sm hover-effect">
+            <div class="position-relative">
+              <img [src]="apiUrl + '/' + item.img" class="card-img-top" alt="Bất động sản" style="height: 250px; object-fit: cover;">
+              <span class="badge bg-primary position-absolute top-0 end-0 m-3">Hot</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-primary">{{ item.name }}</h5>
+              <p class="card-text text-muted mb-2"><i class="fas fa-map-marker-alt me-2"></i>{{ item.keyword }}</p>
+              <p class="card-text"><strong class="text-danger">{{ item.price }}</strong></p>
+              <div class="property-features d-flex justify-content-between mb-3">
+                <span><i class="fas fa-bed me-2"></i>3 PN</span>
+                <span><i class="fas fa-bath me-2"></i>2 VS</span>
+                <span><i class="fas fa-ruler-combined me-2"></i>120m²</span>
+              </div>
+              <a href="javascript:void(0)" class="btn btn-outline-primary w-100" (click)="handleLink(item)">
+                Xem chi tiết
+              </a>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    <div #anchor class="text-center mt-4" *ngIf="loading">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+</section>
 
+<!-- About Us Section với stats -->
+<section class="about-us py-5 bg-light mb-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h2 class="mb-4">Về Chúng Tôi</h2>
+        <p class="lead">Chúng tôi tự hào là đơn vị tiên phong trong lĩnh vực bất động sản với hơn 10 năm kinh nghiệm.</p>
+        <div class="row mt-4">
+          <div class="col-6 col-md-3 text-center mb-3">
+            <h3 class="text-primary">1000+</h3>
+            <p class="text-muted">Dự án</p>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-3">
+            <h3 class="text-primary">5000+</h3>
+            <p class="text-muted">Khách hàng</p>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-3">
+            <h3 class="text-primary">50+</h3>
+            <p class="text-muted">Giải thưởng</p>
+          </div>
+          <div class="col-6 col-md-3 text-center mb-3">
+            <h3 class="text-primary">10+</h3>
+            <p class="text-muted">Năm kinh nghiệm</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <img src="assets/images/about-us.jpg" alt="Về chúng tôi" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials py-5 mb-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Khách Hàng Nói Gì Về Chúng Tôi</h2>
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial-card text-center p-4">
+            <img src="assets/images/avatar1.jpg" class="rounded-circle mb-3" width="80" height="80" alt="Avatar">
+            <p class="lead">"Dịch vụ tuyệt vời, tôi đã tìm được căn nhà mơ ước."</p>
+            <h5 class="mb-0">Nguyễn Văn A</h5>
+            <small class="text-muted">Khách hàng</small>
+          </div>
+        </div>
+        <!-- Thêm các testimonial khác -->
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>

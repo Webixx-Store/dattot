@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { ToastrService } from 'ngx-toastr';
-import { Observable, observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Observable, observable, Subject, takeUntil } from 'rxjs';
 import { productAction } from 'src/app/actions/product.action';
 import { AuthDetail } from 'src/app/common/util/auth-detail';
 import { ValidationUtil } from 'src/app/common/util/validation.util';
@@ -23,7 +23,7 @@ import { CommonUtils } from 'src/app/common/util/common-utils';
 export class ProductDetailComponent implements OnInit {
   isPopupOpen = true;
   product$ = new Observable<ProductResponseModel>();
-
+  private destroy$ = new Subject<void>(); // Thêm destroy$ ở đây
   product : ProductModel = {} as ProductModel;
   constructor(private route: ActivatedRoute , private productStore: Store<ProductState>,
     private cartService : CartService,
@@ -40,33 +40,43 @@ export class ProductDetailComponent implements OnInit {
 
 
 
-  ngOnInit(): void {
-    this.route.paramMap.subscribe(params => {
-      this.productId = String(params.get('product'));
-      this.productStore.dispatch(productAction({params:{
-        id:this.productId
-      }}))
-    });
+    ngOnInit(): void {
+      // Sử dụng debounceTime để tránh việc gọi API quá nhiều
+      this.route.paramMap.pipe(
+        takeUntil(this.destroy$),
+        debounceTime(300)
+      ).subscribe({
+        next: (params) => {
+          const productId = params.get('product');
+          if (productId && productId !== this.productId) {
+            this.productId = String(productId);
+            this.productStore.dispatch(productAction({params:{ id:this.productId }}));
+          }
+        },
+        error: (error) => {
+          console.error('Param error:', error);
+          this.toastr.error('Có lỗi xảy ra khi tải thông tin');
+        }
+      });
 
-    this.product$.subscribe(res=>{
-      if(ValidationUtil.isNotNullAndNotEmpty(res)){
-        this.product = res.products[0];
-      }
-    })
-  }
+      this.product$.pipe(
+        takeUntil(this.destroy$),
+        distinctUntilChanged()
+      ).subscribe({
+        next: (res) => {
+          if (ValidationUtil.isNotNullAndNotEmpty(res)) {
+            this.product = res.products[0];
+          }
+        },
+        error: (error) => {
+          console.error('Product error:', error);
+          this.toastr.error('Có lỗi xảy ra khi tải sản phẩm');
+        }
+      });
+    }
 
   closePopup():void{
     this.isPopupOpen = false;
-  }
-
-  clickBuy(item:ProductModel):void{
-    const id =  AuthDetail.getLoginedInfo()?.id;
-
-    this.cartService.addToCart(String(id), item, 1 );
-
-    this.toastr.success("Add Cart suscess")
-
-
   }
 
   getSanitizedDescription(): SafeHtml {
@@ -78,4 +88,8 @@ export class ProductDetailComponent implements OnInit {
 
   }
 
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
 }
