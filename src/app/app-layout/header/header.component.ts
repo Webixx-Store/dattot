@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
     },
     {
       kind: 'mu',
-      label:'Phân tích tiền ảo',
+      label:'Phân tích tiền điện tử',
       route:'/du-an/phan-tich-tien-ao',
     }
   ];
