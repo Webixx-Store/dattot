@@ -28,6 +28,8 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CreateWalletComponent } from './create-wallet/create-wallet.component';
+import { AnaCoinListComponent } from './ana-coin-list/ana-coin-list.component';
+import { AnaCoinDetailComponent } from './ana-coin-detail/ana-coin-detail.component';
 
 
 
@@ -42,7 +44,9 @@ import { CreateWalletComponent } from './create-wallet/create-wallet.component';
     CartComponent,
     ProductListComponent,
     AddCategoryComponent,
-    CreateWalletComponent
+    CreateWalletComponent,
+    AnaCoinListComponent,
+    AnaCoinDetailComponent
   ],
   imports: [
     CommonModule,

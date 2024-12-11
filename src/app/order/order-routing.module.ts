@@ -11,6 +11,7 @@ import { WishListComponent } from './wish-list/wish-list.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { CreateWalletComponent } from './create-wallet/create-wallet.component';
+import { AnaCoinListComponent } from './ana-coin-list/ana-coin-list.component';
 
 const routes: Routes = [
   {path:'checkout' , component:CheckoutComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   {path:'order-analysic' , component:OrderAnalysicComponent},
   {path:'them-danh-muc' , component:AddCategoryComponent},
   {path:'tao-vi' , component:CreateWalletComponent},
+  {path:'phan-tich-tien-ao' , component:AnaCoinListComponent},
   {path:'' , component:ShoesProductListComponent}
 ];
 

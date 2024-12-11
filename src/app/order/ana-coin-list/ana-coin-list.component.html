@@ -1,0 +1,90 @@
+<div class="container mt-5" *ngIf="step == 0">
+    <div class="table-responsive shadow-lg p-3 mb-5 bg-body-tertiary">
+      <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col" class="text-center">#</th>
+            <th scope="col">Tên Coin</th>
+            <th scope="col" class="text-end">Giá Coin (USD)</th>
+            <th scope="col">Khung Giờ</th>
+            <th scope="col" class="text-center">Phân Tích</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let coin of coins; let i = index">
+            <th scope="row" class="text-center">{{ i + 1 }}</th>
+            <td>{{ coin.name }}</td>
+            <td class="text-end">${{ coin.current_price | number }}</td>
+            <td>
+              <select class="form-select form-select-sm" [(ngModel)]="coin.timeFrame">
+                <option value="1m">1 phút</option>
+                <option value="3m">3 phút</option>
+                <option value="5m">5 phút</option>
+                <option value="15m">15 phút</option>
+                <option value="30m">30 phút</option>
+                <option value="1h">1 giờ</option>
+                <option value="2h">2 giờ</option>
+                <option value="4h">4 giờ</option>
+                <option value="6h">6 giờ</option>
+                <option value="8h">8 giờ</option>
+                <option value="12h">12 giờ</option>
+                <option value="1d">1 ngày</option>
+                <option value="3d">3 ngày</option>
+                <option value="1w">1 tuần</option>
+                <option value="1M">1 tháng</option>
+              </select>
+            </td>
+            <td class="text-center">
+              <button class="btn btn-primary btn-sm" (click)="analyze(coin)">
+                <i class="bi bi-graph-up"></i> Phân Tích
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+  <article class="entry single-entry entry-fullwidth" *ngIf="step == 1">
+    <div class="row mt-3">
+        <div class="col-lg-11">
+          <a href="#" (click)="goBackToStep0()" class="btn btn-primary">Quay lại Step 0</a>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-lg-11">
+        <div class="product-description overflow-hidden">
+          <div [innerHTML]="content"></div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Phần Donate -->
+    <div class="donate-section">
+      <h3>Hỗ Trợ Dự Án Phân Tích Của Tôi</h3>
+      <p>Chào bạn, nếu bạn thấy các phân tích của tôi hữu ích và muốn hỗ trợ, bạn có thể gửi đóng góp qua tài khoản ngân hàng hoặc ví coin dưới đây:</p>
+  
+      <!-- Thông tin tài khoản ngân hàng -->
+      <div class="bank-info">
+        <h4><i class="fas fa-university"></i> Tài Khoản Ngân Hàng:</h4>
+        <p><strong><i class="fas fa-building"></i> Tên Ngân Hàng:</strong> SHINHANBANK</p>
+        <p><strong><i class="fas fa-credit-card"></i> Số Tài Khoản:</strong> 0582153211</p>
+        <p><strong><i class="fas fa-user"></i> Chủ Tài Khoản:</strong> TRAN HOANG LINH</p>
+      </div>
+      
+      <!-- Thông tin ví coin -->
+      <div class="crypto-info">
+        <h4><i class="fab fa-ethereum"></i> Địa Chỉ Ví Coin Metamask:</h4>
+        <p><strong><i class="fab fa-bitcoin"></i>0x938f76CBc6158d3b2c23B58Fe3Aa3984D2C0819b</strong></p>
+      </div>
+      
+  
+      <!-- Lời kêu gọi donate -->
+      <div class="donate-call-to-action">
+        <p>Cảm ơn bạn rất nhiều vì sự hỗ trợ! Mọi đóng góp sẽ giúp tôi tiếp tục phát triển các phân tích và chia sẻ thông tin hữu ích. Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với tôi ZALO: 0914527284!</p>
+      </div>
+    </div>
+  </article>
+  
+  
