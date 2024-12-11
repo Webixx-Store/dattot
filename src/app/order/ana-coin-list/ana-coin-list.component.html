@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3"  *ngIf="step == 0">
+<div class="container mt-3"  *ngIf="step == 0">
   <div class="table-responsive-xl shadow p-2 bg-body-tertiary rounded">
       <table class="table table-striped table-hover align-middle mb-0">
           <thead class="table-dark">
@@ -51,8 +51,8 @@
   </div>
 </div>
 
-  <div class="container">
-    <article class="entry single-entry entry-fullwidth" *ngIf="step == 1">
+  <div class="container" *ngIf="step == 1">
+    <article class="entry single-entry entry-fullwidth" >
         <div class="row mt-3">
             <div class="col-lg-11">
               <a  href="javascript:void(0);" (click)="goBackToStep0()" class="btn btn-primary">Quay lại Step 0</a>
