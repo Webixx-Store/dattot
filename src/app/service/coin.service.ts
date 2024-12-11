@@ -61,7 +61,11 @@ export class CoinService {
       .set('symbol', symbol + 'USDT')
       .set('interval', interval)
       .set('limit', limit.toString());
-
-    return this._http.get(this.apiUrl1, { params });
+  
+    return this._http.get(this.apiUrl1, { 
+      params, 
+      responseType: 'text'  // Thêm responseType: 'text' ở đây
+    });
   }
+  
 }
