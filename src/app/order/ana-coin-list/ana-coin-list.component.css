@@ -1,136 +1,65 @@
-.container {
-    max-width: 900px;
-    margin: auto;
-  }
-  
-  .table {
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .table thead {
-    background: #343a40;
-    color: #fff;
-  }
-  
-  .table-striped tbody tr:nth-of-type(odd) {
-    background-color: #f8f9fa;
-  }
-  
-  .table-hover tbody tr:hover {
-    background-color: #e9ecef;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-  }
-  
-
-  .donate-section {
-    background-color: #f8f9fa;
-    padding: 20px;
-    margin-top: 30px;
-    border-radius: 8px;
-  }
-  
-  .donate-section h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
-  }
-  
-  .donate-section p {
-    font-size: 16px;
-    line-height: 1.6;
-  }
-  
-  .bank-info, .crypto-info {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-  }
-  
-  .donate-call-to-action {
-    margin-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    text-align: center;
-  }
-  
-  .donate-call-to-action p {
-    color: #333;
-  }
-  
-  .bank-info, .crypto-info {
-    pointer-events: none;
+/* Mobile Styles */
+@media (max-width: 767px) {
+  /* Make the table scrollable horizontally */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
+  /* Make the table rows look like cards on mobile */
+  .table th, .table td {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+  }
 
-  .page-content {
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  .entry-title {
-    font-size: 2rem;
+  /* Add labels for mobile devices to explain the data */
+  .table td:before {
+    content: attr(data-label);
     font-weight: bold;
-    margin-bottom: 20px;
+    color: #000;
+    display: inline-block;
+    margin-bottom: 5px;
   }
-  
-  .entry-meta {
-    font-size: 0.9rem;
-    color: #777;
+
+  .table td {
+    padding-left: 50%; /* Add space for the labels */
+    position: relative;
   }
-  
-  .product-description {
-    margin-top: 20px;
-    font-size: 1rem;
-    line-height: 1.5;
+
+  /* Show the labels only on mobile */
+  .table th, .table td {
+    font-size: 14px; /* Adjust font size for mobile */
   }
-  
-  .comments, .reply {
-    margin-top: 40px;
+
+  /* Optionally, hide the 'Giá Coin' and 'Khung Giờ' on smaller devices */
+  .table .d-none.d-md-table-cell {
+    display: none;
   }
-  
-  .title {
-    font-size: 1.5rem;
-    font-weight: bold;
+
+  .table td .form-select {
+    width: 100%; /* Make the select box full width on mobile */
   }
-  
-  .reply .form-control {
-    margin-bottom: 15px;
+
+  /* Make button text and size larger for touch */
+  .btn {
+    font-size: 14px;
+    padding: 10px;
   }
-  
-  .btn-outline-primary {
-    background-color: transparent;
-    border: 2px solid #007bff;
-    color: #007bff;
-    transition: all 0.3s ease;
+}
+
+/* On medium devices and larger, restore the table layout with columns */
+@media (min-width: 768px) {
+  .table td:before {
+    display: none; /* Hide the label text for larger screens */
   }
-  
-  .btn-outline-primary:hover {
-    background-color: #007bff;
-    color: white;
+
+  .table th, .table td {
+    display: table-cell; /* Reset to default table layout */
   }
-  
-  @media (max-width: 768px) {
-    .entry-title {
-      font-size: 1.5rem;
-    }
-  
-    .product-description {
-      font-size: 0.9rem;
-    }
-  
-    .btn-outline-primary {
-      width: 100%;
-    }
+
+  .table td {
+    padding-left: 0; /* Remove left padding on larger screens */
   }
+}

@@ -1,52 +1,58 @@
-<div class="container mt-5" *ngIf="step == 0">
-    <div class="table-responsive shadow-lg p-3 mb-5 bg-body-tertiary">
-      <table class="table table-striped table-hover align-middle">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col" class="text-center">#</th>
-            <th scope="col">Tên Coin</th>
-            <th scope="col" class="text-end">Giá Coin (USD)</th>
-            <th scope="col">Khung Giờ</th>
-            <th scope="col" class="text-center">Phân Tích</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let coin of coins; let i = index">
-            <th scope="row" class="text-center">{{ i + 1 }}</th>
-            <td>{{ coin.name }}</td>
-            <td class="text-end">${{ coin.current_price | number }}</td>
-            <td>
-              <select class="form-select form-select-sm" [(ngModel)]="coin.timeFrame">
-                <option value="1m">1 phút</option>
-                <option value="3m">3 phút</option>
-                <option value="5m">5 phút</option>
-                <option value="15m">15 phút</option>
-                <option value="30m">30 phút</option>
-                <option value="1h">1 giờ</option>
-                <option value="2h">2 giờ</option>
-                <option value="4h">4 giờ</option>
-                <option value="6h">6 giờ</option>
-                <option value="8h">8 giờ</option>
-                <option value="12h">12 giờ</option>
-                <option value="1d">1 ngày</option>
-                <option value="3d">3 ngày</option>
-                <option value="1w">1 tuần</option>
-                <option value="1M">1 tháng</option>
-              </select>
-            </td>
-            <td class="text-center">
-              <button class="btn btn-primary btn-sm" (click)="analyze(coin)">
-                <i class="bi bi-graph-up"></i> Phân Tích
-              </button>
-            </td>
-          </tr>
-        </tbody>
+<div class="container-fluid mt-3">
+  <div class="table-responsive-xl shadow p-2 bg-body-tertiary rounded">
+      <table class="table table-striped table-hover align-middle mb-0">
+          <thead class="table-dark">
+              <tr>
+                  <th scope="col" class="text-center d-none d-sm-table-cell">#</th>
+                  <th scope="col">Tên Coin</th>
+                  <th scope="col" class="text-end">Giá (USD)</th>
+                  <th scope="col">Khung Giờ</th>
+                  <th scope="col" class="text-center">Phân Tích</th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let coin of coins; let i = index">
+                  <th scope="row" class="text-center d-none d-sm-table-cell">{{ i + 1 }}</th>
+                  <td>
+                      <div class="fw-bold">{{ coin.name }}</div>
+                  </td>
+                  <td class="text-end">
+                      <div class="small">${{ coin.current_price | number }}</div>
+                  </td>
+                  <td>
+                      <select class="form-select form-select-sm w-auto" [(ngModel)]="coin.timeFrame">
+                          <option value="1m">1p</option>
+                          <option value="3m">3p</option>
+                          <option value="5m">5p</option>
+                          <option value="15m">15p</option>
+                          <option value="30m">30p</option>
+                          <option value="1h">1h</option>
+                          <option value="2h">2h</option>
+                          <option value="4h">4h</option>
+                          <option value="6h">6h</option>
+                          <option value="8h">8h</option>
+                          <option value="12h">12h</option>
+                          <option value="1d">1d</option>
+                          <option value="3d">3d</option>
+                          <option value="1w">1t</option>
+                          <option value="1M">1th</option>
+                      </select>
+                  </td>
+                  <td class="text-center">
+                      <button class="btn btn-primary btn-sm" (click)="analyze(coin)">
+                          <i class="bi bi-graph-up d-none d-sm-inline"></i>
+                          <span class="d-inline d-sm-none">Phân tích</span>
+                          <span class="d-none d-sm-inline"> Phân tích</span>
+                      </button>
+                  </td>
+              </tr>
+          </tbody>
       </table>
-    </div>
   </div>
+</div>
 
   <div class="container">
-    <article class="entry single-entry entry-fullwidth" *ngIf="step == 1">
+    <article class="entry single-entry entry-fullwidth" *ngIf="step == 0">
         <div class="row mt-3">
             <div class="col-lg-11">
               <a  href="javascript:void(0);" (click)="goBackToStep0()" class="btn btn-primary">Quay lại Step 0</a>
@@ -69,7 +75,7 @@
           <div class="bank-info">
             <h4><i class="fas fa-university"></i> Tài Khoản Ngân Hàng:</h4>
             <p><strong><i class="fas fa-building"></i> Tên Ngân Hàng:</strong> SHINHANBANK</p>
-            <p><strong><i class="fas fa-credit-card"></i> Số Tài Khoản:</strong> 0582153211</p>
+            <p><strong><i class="fas fa-credit-card"></i> Số Tài Khoản:</strong> 0582163211</p>
             <p><strong><i class="fas fa-user"></i> Chủ Tài Khoản:</strong> TRAN HOANG LINH</p>
           </div>
           
