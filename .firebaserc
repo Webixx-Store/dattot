@@ -1,7 +1,8 @@
 {
   "projects": {
     "default": "auth-webixx",
-    "staging": "auth-webixx"
+    "staging": "auth-webixx",
+    "cryptovuive": "cryptovuive"
   },
   "targets": {},
   "etags": {}

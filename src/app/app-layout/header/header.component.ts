@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit {
     {
       kind: 'mu',
       label:'Phân tích tiền điện tử',
-      route:'/du-an/phan-tich-tien-ao',
+      route:'**',
     }
   ];
   currentPath: string = '';
@@ -227,6 +227,7 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(menu: Menu): void {
+    debugger;
     this.currentPath = this.findMenuPath(String(menu.route));
     const pageHeading : PageHeading = {
       chilren:this.currentPath,
@@ -244,7 +245,11 @@ export class HeaderComponent implements OnInit {
     const search = (menuArray: Menu[]): Menu | undefined => {
       for (const menu of menuArray) {
         // Kiểm tra nếu route khớp với URL
+        if(menu.route == '**'){
+          url = "**"
+        }
         if (menu.route === url) {
+
           return menu;
         }
         // Nếu có items con, duyệt đệ quy

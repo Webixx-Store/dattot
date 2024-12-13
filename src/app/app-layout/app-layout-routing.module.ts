@@ -8,6 +8,7 @@ import { ChatTingComponent } from './trade/chat-ting/chat-ting.component';
 import { AuthDetail } from '../common/util/auth-detail';
 import { OrderAnalysicComponent } from '../order/order-analysic/order-analysic.component';
 import { WeddingComponent } from '../wedding/wedding.component';
+import { AnaCoinListComponent } from '../order/ana-coin-list/ana-coin-list.component';
 const postModule = () => import ("../../app/app-layout/post/post.module").then(x => x.PostModule);
 const orderModule = () => import ("../../app/order/order.module").then(x => x.OrderModule);
 const authModule = () => import ("../../app/app-layout/login/login-routing.module").then(x=>x.LoginRoutingModule)
@@ -19,7 +20,7 @@ const routes: Routes = [
   {
     path: '', component: AppLayoutComponent, children: [
 
-       { path: '', component: role == 'admin' ? OrderAnalysicComponent : HomePageComponent },
+       { path: '', component:   AnaCoinListComponent},
        { path: 'auth', loadChildren: authModule },
        { path: 'du-an'  , loadChildren: orderModule },
        { path: 'tin-tuc', loadChildren: postModule },

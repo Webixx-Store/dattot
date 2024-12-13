@@ -1,18 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://dattot-vn.web.app/</loc>
+    <loc>https://cryptovuive.web.app/</loc>
     <lastmod>2024-12-05</lastmod>
     <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://dattot-vn.web.app/du-an/danh-sach</loc>
-    <lastmod>2024-12-05</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://dattot-vn.web.app/tin-tuc</loc>
-    <lastmod>2024-12-05</lastmod>
-    <priority>0.6</priority>
   </url>
 </urlset>
