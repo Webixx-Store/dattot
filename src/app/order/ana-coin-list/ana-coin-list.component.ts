@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
 import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
@@ -14,6 +15,8 @@ export class AnaCoinListComponent implements OnInit {
   step : number = 0;
   content : any ;
   showPopup:boolean = false;
+  len: number = 20;
+  page = 1;
 
   analyzeCoin(coin: any) {
     alert(`Phân tích ${coin.name} trong khung giờ ${coin.timeFrame}`);
@@ -26,8 +29,8 @@ export class AnaCoinListComponent implements OnInit {
     let params = {
       vs_currency: 'usd',
         order: 'market_cap_desc',
-        per_page: '20',
-        page: '1',
+        per_page: this.len,
+        page: this.page,
         sparkline: 'false',
     }
 
@@ -38,12 +41,28 @@ export class AnaCoinListComponent implements OnInit {
     this.coinService.getCoinGecKo(params).subscribe({
       next: (data) => {
         this.coins = data;
+        this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
       },
       error: (err) => {
         console.error(err);
       }
     });
   }
+
+   handlePageEvent(page:PageEvent){
+      this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
+      this.page = page.pageIndex + 1;
+      this.len = page.pageSize;
+      let params = {
+        vs_currency: 'usd',
+          order: 'market_cap_desc',
+          per_page: this.len,
+          page: this.page,
+          sparkline: 'false',
+      }
+
+      this.fetchCoins(params);
+    }
 
   analyze(item : any): void {
 

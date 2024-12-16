@@ -28,7 +28,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let coin of coins; let i = index" class="coin-row">
-            <td class="d-none d-sm-table-cell">{{i + 1}}</td>
+            <td class="d-none d-sm-table-cell">{{(i + 1) + ((page -1 ) * len)  }}</td>
             <td class="coin-name">
               <div class="coin-info">
                 <img [src]="coin.image" class="coin-icon" *ngIf="coin.image">
@@ -74,6 +74,10 @@
           </tr>
         </tbody>
       </table>
+    </div>
+     <!-- Phân trang -->
+     <div class="pagination-container">
+      <app-paging (handelChangePage)="handlePageEvent($event)" [pageSize]="len" [length]="200"></app-paging>
     </div>
   </div>
 </div>

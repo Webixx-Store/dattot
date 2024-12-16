@@ -212,3 +212,56 @@
   background-position: right 15px center;
   background-size: 15px;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .chat_window {
+    height: 500px;
+  }
+
+  .messages {
+    height: 300px;
+  }
+
+  .message_input_wrapper {
+    width: calc(100% - 100px);
+  }
+
+  .send_message {
+    width: 90px;
+  }
+
+  .bottom_wrapper {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .chat_window {
+    height: 400px;
+  }
+
+  .messages {
+    height: 250px;
+  }
+
+  .message_input {
+    height: 40px;
+  }
+
+  .send_message {
+    width: 80px;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+
+  .message .name {
+    font-size: 12px;
+  }
+
+  .message .text {
+    font-size: 12px;
+  }
+}
