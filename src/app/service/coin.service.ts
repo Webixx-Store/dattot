@@ -12,7 +12,7 @@ import { MexcModel } from '../model/mexc.model';
 })
 export class CoinService {
   private apiUrl = 'https://api.coingecko.com/api/v3/coins/markets';
-  private apiUrl1 = 'https://python-fk3x.onrender.com/analyze1'
+  private apiUrl1 = 'https://python-qnav.onrender.com/analyze1'
 
   constructor(private _http: HttpClient) {
 
@@ -61,11 +61,11 @@ export class CoinService {
       .set('symbol', symbol + 'USDT')
       .set('interval', interval)
       .set('limit', limit.toString());
-  
-    return this._http.get(this.apiUrl1, { 
-      params, 
+
+    return this._http.get(this.apiUrl1, {
+      params,
       responseType: 'text'  // Thêm responseType: 'text' ở đây
     });
   }
-  
+
 }
