@@ -197,27 +197,36 @@
 
 .floating-chat-icon {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000;
 }
 
-.btn-professional {
-  background-color: #4CAF50; /* Màu nền xanh lá cây tối giản */
+.btn-chat {
+  background-color: #007bff; /* Màu xanh chuyên nghiệp */
   color: white; /* Màu biểu tượng */
   border: none;
-  border-radius: 50%; /* Hình tròn hoàn hảo */
-  width: 60px; /* Kích thước nút */
-  height: 60px; /* Kích thước nút */
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); /* Bóng nhẹ */
-  transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển động */
-}
-
-.btn-professional:hover {
-  transform: scale(1.1); /* Tăng kích thước khi hover */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Bóng sâu hơn khi hover */
-}
-
-.btn-professional i {
+  border-radius: 50%; /* Hình tròn */
+  width: 70px; /* Kích thước nút */
+  height: 70px; /* Kích thước nút */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bóng nhẹ */
+  transition: transform 0.3s, box-shadow 0.3s;
   font-size: 24px; /* Kích thước biểu tượng */
+}
+
+.btn-chat:hover {
+  transform: scale(1.05); /* Tăng kích thước khi hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Bóng sâu hơn khi hover */
+}
+
+/* Thêm hiệu ứng cho biểu tượng */
+.btn-chat i {
+  transition: color 0.3s;
+}
+
+.btn-chat:hover i {
+  color: #ffcc00; /* Màu sắc biểu tượng khi hover */
 }
