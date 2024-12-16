@@ -1,65 +1,195 @@
-/* Mobile Styles */
-@media (max-width: 767px) {
-  /* Make the table scrollable horizontally */
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+/* coin-analysis.component.scss */
+.dashboard-container {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
 
-  /* Make the table rows look like cards on mobile */
-  .table th, .table td {
-    display: block;
-    width: 100%;
-    text-align: left;
-    padding: 10px 0;
-  }
+.market-panel {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
 
-  /* Add labels for mobile devices to explain the data */
-  .table td:before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: #000;
-    display: inline-block;
-    margin-bottom: 5px;
-  }
+.dashboard-title {
+  padding: 1.5rem;
+  margin: 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 
-  .table td {
-    padding-left: 50%; /* Add space for the labels */
-    position: relative;
-  }
-
-  /* Show the labels only on mobile */
-  .table th, .table td {
-    font-size: 14px; /* Adjust font size for mobile */
-  }
-
-  /* Optionally, hide the 'Giá Coin' and 'Khung Giờ' on smaller devices */
-  .table .d-none.d-md-table-cell {
-    display: none;
-  }
-
-  .table td .form-select {
-    width: 100%; /* Make the select box full width on mobile */
-  }
-
-  /* Make button text and size larger for touch */
-  .btn {
-    font-size: 14px;
-    padding: 10px;
+  i {
+    color: #3498db;
   }
 }
 
-/* On medium devices and larger, restore the table layout with columns */
-@media (min-width: 768px) {
-  .table td:before {
-    display: none; /* Hide the label text for larger screens */
+.table-wrapper {
+  overflow-x: auto;
+  padding: 1rem;
+}
+
+.analysis-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  th {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem;
+    font-weight: 500;
+    text-align: left;
+    white-space: nowrap;
+
+    i {
+      margin-right: 0.5rem;
+      font-size: 0.9rem;
+    }
   }
 
-  .table th, .table td {
-    display: table-cell; /* Reset to default table layout */
+  td {
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+  }
+}
+
+.coin-row {
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #f8f9fa;
+  }
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.coin-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.coin-symbol {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 0.5rem;
+}
+
+.coin-fullname {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
+
+.price-wrapper {
+  text-align: right;
+}
+
+.price-value {
+  font-weight: 600;
+  color: #2c3e50;
+  display: block;
+}
+
+.price-change {
+  font-size: 0.85rem;
+
+  &.positive {
+    color: #2ecc71;
   }
 
-  .table td {
-    padding-left: 0; /* Remove left padding on larger screens */
+  &.negative {
+    color: #e74c3c;
+  }
+}
+
+.timeframe-select {
+  background: #f8f9fa;
+  border: 1px solid #dee2e6;
+  padding: 0.5rem;
+  border-radius: 6px;
+  color: #2c3e50;
+  font-size: 0.9rem;
+  width: auto;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52,152,219,0.2);
+  }
+}
+
+.analyze-btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+
+  &:hover {
+    background: #2980b9;
+    transform: translateY(-1px);
+  }
+
+  i {
+    font-size: 1rem;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+
+  .dashboard-title {
+    font-size: 1.2rem;
+    padding: 1rem;
+  }
+
+  .analysis-table {
+    th, td {
+      padding: 0.75rem;
+    }
+  }
+
+  .coin-fullname {
+    display: none;
+  }
+
+  .analyze-btn {
+    padding: 0.4rem 0.8rem;
+
+    span {
+      display: none;
+    }
+
+    i {
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .price-change {
+    display: none;
+  }
+
+  .timeframe-select {
+    width: 100%;
   }
 }
