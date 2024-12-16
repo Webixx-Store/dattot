@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { Store } from '@ngrx/store';
+import { Toast, ToastrService } from 'ngx-toastr';
 import { setShowOverlayLoading } from 'src/app/actions/overlay-loading.action';
 import { OverlayLoadingState } from 'src/app/selectors/overlay-loading.selector';
 import { CoinService } from 'src/app/service/coin.service';
@@ -12,6 +13,7 @@ import { CoinService } from 'src/app/service/coin.service';
 })
 export class AnaCoinListComponent implements OnInit {
   coins : any [] = [];
+  pagedCoins : any [] = [];
   step : number = 0;
   content : any ;
   showPopup:boolean = false;
@@ -21,7 +23,7 @@ export class AnaCoinListComponent implements OnInit {
   analyzeCoin(coin: any) {
     alert(`Phân tích ${coin.name} trong khung giờ ${coin.timeFrame}`);
   }
-  constructor(private coinService : CoinService ,  private overlayLoadingStore: Store<OverlayLoadingState>) {
+  constructor(private coinService : CoinService ,  private overlayLoadingStore: Store<OverlayLoadingState> , private toastr: ToastrService) {
 
   }
 
@@ -29,7 +31,7 @@ export class AnaCoinListComponent implements OnInit {
     let params = {
       vs_currency: 'usd',
         order: 'market_cap_desc',
-        per_page: this.len,
+        per_page: 200,
         page: this.page,
         sparkline: 'false',
     }
@@ -38,9 +40,15 @@ export class AnaCoinListComponent implements OnInit {
   }
 
   fetchCoins(params: any): void {
+    this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     this.coinService.getCoinGecKo(params).subscribe({
       next: (data) => {
         this.coins = data;
+        const startIndex = (this.page - 1) * this.len;
+        const endIndex = startIndex + this.len;
+        this.pagedCoins = this.coins.slice(startIndex, endIndex);
+        console.log(`Current Page: ${this.page}`);
+        console.log('Paged Coins:', this.pagedCoins);
         this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
       },
       error: (err) => {
@@ -53,15 +61,18 @@ export class AnaCoinListComponent implements OnInit {
       this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
       this.page = page.pageIndex + 1;
       this.len = page.pageSize;
-      let params = {
-        vs_currency: 'usd',
-          order: 'market_cap_desc',
-          per_page: this.len,
-          page: this.page,
-          sparkline: 'false',
-      }
+      // Tính toán dữ liệu trang hiện tại
+      const startIndex = (this.page - 1) * this.len;
+      const endIndex = startIndex + this.len;
 
-      this.fetchCoins(params);
+      // Lấy dữ liệu cho trang hiện tại
+      this.pagedCoins = this.coins.slice(startIndex, endIndex);
+
+      console.log(`Current Page: ${this.page}`);
+      console.log('Paged Coins:', this.pagedCoins);
+      setTimeout(() => {
+        this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
+      }, 300);
     }
 
   analyze(item : any): void {
@@ -77,6 +88,8 @@ export class AnaCoinListComponent implements OnInit {
       },
       error: (err) => {
         this.step = 0;
+        this.toastr.error("Đồng tiền " + symbol + " hoặc khung thời gian này chưa được hỗ trợ trên api của Binance vui lòng chọn option khác đễ phân tích")
+        this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:false}));
         console.error(err);
       }
     });

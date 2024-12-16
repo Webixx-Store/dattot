@@ -27,7 +27,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let coin of coins; let i = index" class="coin-row">
+          <tr *ngFor="let coin of pagedCoins; let i = index" class="coin-row">
             <td class="d-none d-sm-table-cell">{{(i + 1) + ((page -1 ) * len)  }}</td>
             <td class="coin-name">
               <div class="coin-info">
