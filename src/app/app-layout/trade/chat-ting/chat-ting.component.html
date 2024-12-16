@@ -1,73 +1,67 @@
 <div class="chat_window">
-    <div class="top_menu">
-      <div class="buttons">
-        <div class="button close"></div>
-        <div class="button minimize"></div>
-        <div class="button maximize"></div>
+  <ul class="messages" #messages>
+    <li class="message right" *ngFor="let item of messageList"
+    [ngClass]="{'left': item.message_side === 'receiver', 'right': item.message_side === 'sender'}"
+    >
+      <div class="avatar">
+        <i class="fas" [ngClass]="{'fa-robot': item.message_side === 'receiver', 'fa-user': item.message_side === 'sender'}"></i>
       </div>
-      <div class="title">
-        <img src="../../../../assets/images/logo.png" width="25px" height="25px">
+      <div class="text_wrapper">
+        <div class="name">{{ item.user }}</div>
+        <div class="text" [innerHTML]="item.message"></div>
+
+        <img
+          *ngIf="isImage(item.image)"
+          (click)="imgClick(apiUrl + '/' + item.image)"
+          [src]="apiUrl + '/' + item.image"
+          class="img-fluid rounded chat-image"
+          alt="Chat image"
+        />
+
+        <a
+          *ngIf="!isImage(item.image) && item.image"
+          class="file-attachment"
+          [href]="apiUrl + '/' + item.image"
+          download="{{ apiUrl + '/' + item.image }}"
+        >
+          <i class="fas fa-file file-icon"></i>
+          <span class="file-name">{{item.image.replace("upload/product/", "")}}</span>
+          <i class="fas fa-download download-icon"></i>
+        </a>
       </div>
+    </li>
+  </ul>
+  <div class="bottom_wrapper clearfix">
+    <div class="message_input_wrapper">
+      <select class="message_input custom-select" [(ngModel)]="messageInput" (change)="sendMessage(false)">
+        <option value="" disabled selected>Chọn khung thời gian để phân tích...</option>
+        <optgroup label="Ngắn hạn">
+          <option value="với 200 giá đóng của của khung 1 phút sẽ phù hợp cho giao dịch scalping với thời gian vào lệnh từ vài giây đến vài phút">Khung 1 phút - Phù hợp scalping siêu ngắn (vài giây-phút)</option>
+          <option value="với 200 giá đóng của của khung 3 phút sẽ phù hợp cho giao dịch scalping với thời gian vào lệnh từ 3-15 phút">Khung 3 phút - Phù hợp scalping ngắn (3-15 phút)</option>
+          <option value="với 200 giá đóng của của khung 5 phút sẽ phù hợp cho giao dịch scalping với thời gian vào lệnh từ 5-25 phút">Khung 5 phút - Phù hợp scalping trung bình (5-25 phút)</option>
+          <option value="với 200 giá đóng của của khung 15 phút sẽ phù hợp cho giao dịch intraday với thời gian vào lệnh từ 15-75 phút">Khung 15 phút - Phù hợp intraday ngắn (15-75 phút)</option>
+          <option value="với 200 giá đóng của của khung 30 phút sẽ phù hợp cho giao dịch intraday với thời gian vào lệnh từ 30-150 phút">Khung 30 phút - Phù hợp intraday dài (30-150 phút)</option>
+        </optgroup>
+        <optgroup label="Trung hạn">
+          <option value="với 200 giá đóng của của khung 1 giờ sẽ phù hợp cho giao dịch swing với thời gian vào lệnh từ 1-5 giờ">Khung 1 giờ - Phù hợp swing ngắn (1-5 giờ)</option>
+          <option value="với 200 giá đóng của của khung 2 giờ sẽ phù hợp cho giao dịch swing với thời gian vào lệnh từ 2-10 giờ">Khung 2 giờ - Phù hợp swing trung bình (2-10 giờ)</option>
+          <option value="với 200 giá đóng của của khung 4 giờ sẽ phù hợp cho giao dịch swing với thời gian vào lệnh từ 4-20 giờ">Khung 4 giờ - Phù hợp swing dài (4-20 giờ)</option>
+        </optgroup>
+        <optgroup label="Dài hạn">
+          <option value="với 200 giá đóng của của khung 1 ngày sẽ phù hợp cho giao dịch position với thời gian vào lệnh từ 1-5 ngày">Khung 1 ngày - Phù hợp position ngắn (1-5 ngày)</option>
+          <option value="với 200 giá đóng của của khung 1 tuần sẽ phù hợp cho giao dịch position với thời gian vào lệnh từ 1-5 tuần">Khung 1 tuần - Phù hợp position dài (1-5 tuần)</option>
+        </optgroup>
+      </select>
     </div>
-    <ul class="messages" #messages>
-      <li class="message right" *ngFor="let item of messageList"
-      [ngClass]="{'left': item.message_side === 'receiver', 'right': item.message_side === 'sender'}"
-      >
-        <div class="avatar"></div>
-        <div class="text_wrapper">
-          <div class="name">{{ item.user }}</div>
-          <div class="text" [innerHTML] = "item.message" ></div>
 
-          <img
-            *ngIf="isImage(item.image)"
-            (click)="imgClick(apiUrl + '/' + item.image)"
-            [src]="apiUrl + '/' + item.image"
-            class="img-fluid rounded chat-image"
-            alt="Chat image"
-          />
-
-          <a
-            *ngIf="!isImage(item.image) && item.image"
-            class="file-attachment"
-            [href]="apiUrl + '/' + item.image"
-            download="{{ apiUrl + '/' + item.image }}"
-          >
-            <i class="fas fa-file file-icon"></i>
-            <span class="file-name">{{item.image.replace("upload/product/", "")}}</span>
-            <i class="fas fa-download download-icon"></i>
-          </a>
-        </div>
-      </li>
-
-    </ul>
-    <div class="bottom_wrapper clearfix">
-      <div class="message_input_wrapper">
-        <input class="message_input" placeholder="Message..." [(ngModel)]="messageInput"
-        (keyup.enter)="sendMessage(false)"/>
+    <div class="send_message" (click)="sendMessage(false)">
+      <div class="icon">
+        <i class="fas fa-chart-line"></i>
       </div>
-
-      <div class="send_message" (click)="sendMessage(false)">
-        <div class="icon"></div>
-        <div class="text">Send</div>
-      </div>
-      <app-image-upload class="mb-2 shadow-sm" [isShowImg]="false" (changeFile)="changeFileName($event)" [imageUrl]="imgName"></app-image-upload>
+      <div class="text">Phân tích</div>
     </div>
   </div>
-
-  <app-popup [isOpen]="isPopupOpen" (close)="closePopup()">
-      <h4 class="text-center">Please enter the room ID</h4>
-      <button type="button" class="close" (click)="closePopup()">
-        <span>&times;</span>
-      </button>
-
-      <div class="form-group">
-        <label for="roomId">Name:</label>
-        <input type="text" id="roomId" class="form-control" [(ngModel)]="id" placeholder="Enter Room ID">
-        <label for="roomId">Room ID:</label>
-        <input type="text" id="roomId" class="form-control" [(ngModel)]="romId" placeholder="Enter Room ID">
-      </div>
-      <button type="button" class="btn btn-primary" (click)="closePopup()">Submit</button>
-  </app-popup>
+</div>
 
   <audio #notificationSound src="../../../../assets/audio/notifiaction.mp3"></audio>
   <app-popup [isOpen]="isPopupOpenImg" (close)="closePopupImg()">

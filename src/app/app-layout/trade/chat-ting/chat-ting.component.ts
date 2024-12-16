@@ -47,6 +47,10 @@ export class ChatTingComponent implements OnInit , OnChanges  {
 
   ngOnInit(): void {
     this.lisenerMessage();
+    setTimeout(() => {
+      this.closePopup();
+    }, 2000);
+
   }
 
   ngAfterViewChecked() {
@@ -67,7 +71,7 @@ export class ChatTingComponent implements OnInit , OnChanges  {
 
   sendMessageWithImage(flag:boolean) {
     const chatMessage = {
-      message:flag && this.romId.includes('bot') ? this.askBot : this.messageInput,
+      message:flag && this.romId.includes('bot') ? this.askBot + 'Hãy giải thích 1 cách chi tiết và Hiển thị câu trả lời dưới dạng html mà ko chứa thẻ html để inner vô thẻ div cho đẹp' : this.messageInput,
       user: this.id,
       image: this.base64Image,
       flag:flag
@@ -114,6 +118,9 @@ export class ChatTingComponent implements OnInit , OnChanges  {
   closePopup():void{
     this.chatService.leaveRoom(); // Optional: leave previous room if necessary
 
+    this.id = CommonUtils.generateRandomString(5);
+    this.romId = 'bot'
+
     let romId = '';
     if(this.romId.toLowerCase().includes('bot')){
       romId = this.romId + this.ramdomBotId
@@ -133,7 +140,6 @@ export class ChatTingComponent implements OnInit , OnChanges  {
 
   closePopupImg():void{
     this.isPopupOpenImg = false;
-
   }
 
 

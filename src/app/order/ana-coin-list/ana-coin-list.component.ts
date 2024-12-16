@@ -13,6 +13,7 @@ export class AnaCoinListComponent implements OnInit {
   coins : any [] = [];
   step : number = 0;
   content : any ;
+  showPopup:boolean = false;
 
   analyzeCoin(coin: any) {
     alert(`Phân tích ${coin.name} trong khung giờ ${coin.timeFrame}`);
@@ -36,7 +37,6 @@ export class AnaCoinListComponent implements OnInit {
   fetchCoins(params: any): void {
     this.coinService.getCoinGecKo(params).subscribe({
       next: (data) => {
-        debugger;
         this.coins = data;
       },
       error: (err) => {
@@ -65,6 +65,14 @@ export class AnaCoinListComponent implements OnInit {
 
   goBackToStep0(){
     this.step = 0;
+  }
+
+  clickShowPopup(){
+    this.showPopup = true;
+  }
+
+  closePopup(){
+    this.showPopup = false;
   }
 
 

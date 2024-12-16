@@ -124,3 +124,12 @@
   </div>
 
 
+  <div class="floating-chat-icon" (click)="clickShowPopup()">
+    <button class="btn btn-professional rounded-circle chat-toggle">
+      <i class="fas fa-comments fs-5"></i>
+    </button>
+  </div>
+
+  <app-popup [isOpen]="showPopup" (close)="closePopup()" [title]="'Giải thích về sự lựa chọn khung thời giai để phân tích'">
+    <app-chat-ting></app-chat-ting>
+  </app-popup>

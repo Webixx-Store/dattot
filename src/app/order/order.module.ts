@@ -30,7 +30,7 @@ import { AddCategoryComponent } from './add-category/add-category.component';
 import { CreateWalletComponent } from './create-wallet/create-wallet.component';
 import { AnaCoinListComponent } from './ana-coin-list/ana-coin-list.component';
 import { AnaCoinDetailComponent } from './ana-coin-detail/ana-coin-detail.component';
-
+import { TradeModule } from '../app-layout/trade/trade.module';
 
 
 @NgModule({
@@ -59,6 +59,7 @@ import { AnaCoinDetailComponent } from './ana-coin-detail/ana-coin-detail.compon
     CheckoutModule,
     NgChartsModule,
     CarouselModule,
+    TradeModule,
     StoreModule.forFeature(productFeatureKey,productReducer),
     EffectsModule.forFeature([ProductEffect]),
 

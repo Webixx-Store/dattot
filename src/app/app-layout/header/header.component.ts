@@ -227,7 +227,6 @@ export class HeaderComponent implements OnInit {
   }
 
   onMenuClick(menu: Menu): void {
-    debugger;
     this.currentPath = this.findMenuPath(String(menu.route));
     const pageHeading : PageHeading = {
       chilren:this.currentPath,

@@ -193,3 +193,31 @@
     width: 100%;
   }
 }
+
+
+.floating-chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.btn-professional {
+  background-color: #4CAF50; /* Màu nền xanh lá cây tối giản */
+  color: white; /* Màu biểu tượng */
+  border: none;
+  border-radius: 50%; /* Hình tròn hoàn hảo */
+  width: 60px; /* Kích thước nút */
+  height: 60px; /* Kích thước nút */
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2); /* Bóng nhẹ */
+  transition: transform 0.3s, box-shadow 0.3s; /* Hiệu ứng chuyển động */
+}
+
+.btn-professional:hover {
+  transform: scale(1.1); /* Tăng kích thước khi hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Bóng sâu hơn khi hover */
+}
+
+.btn-professional i {
+  font-size: 24px; /* Kích thước biểu tượng */
+}

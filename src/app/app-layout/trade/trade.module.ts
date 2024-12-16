@@ -31,6 +31,9 @@ import { ComponentsModule } from 'src/app/components/components.module';
     ComponentsModule,
     StoreModule.forFeature(coinFeatureKey,coinReducer),
     EffectsModule.forFeature([CoinEffect]),
+  ],
+  exports: [
+    ChatTingComponent
   ]
 })
 export class TradeModule { }
