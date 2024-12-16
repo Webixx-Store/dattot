@@ -17,7 +17,7 @@ export class AnaCoinListComponent implements OnInit {
   analyzeCoin(coin: any) {
     alert(`Phân tích ${coin.name} trong khung giờ ${coin.timeFrame}`);
   }
-  constructor(private coinService : CoinService ,  private overlayLoadingStore: Store<OverlayLoadingState>) { 
+  constructor(private coinService : CoinService ,  private overlayLoadingStore: Store<OverlayLoadingState>) {
 
   }
 
@@ -36,6 +36,7 @@ export class AnaCoinListComponent implements OnInit {
   fetchCoins(params: any): void {
     this.coinService.getCoinGecKo(params).subscribe({
       next: (data) => {
+        debugger;
         this.coins = data;
       },
       error: (err) => {
@@ -47,7 +48,7 @@ export class AnaCoinListComponent implements OnInit {
   analyze(item : any): void {
 
     this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
-   
+
     let symbol = String(item.symbol).toUpperCase();
     this.coinService.analyze(symbol , item.timeFrame , 200).subscribe({
       next: (data) => {
