@@ -27,6 +27,8 @@ export class AnaCoinListComponent implements OnInit {
 
   }
 
+
+
   ngOnInit(): void {
     let params = {
       vs_currency: 'usd',
@@ -43,6 +45,7 @@ export class AnaCoinListComponent implements OnInit {
     this.overlayLoadingStore.dispatch(setShowOverlayLoading({loading:true}));
     this.coinService.getCoinGecKo(params).subscribe({
       next: (data) => {
+        debugger;
         this.coins = data;
         const startIndex = (this.page - 1) * this.len;
         const endIndex = startIndex + this.len;

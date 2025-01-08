@@ -105,11 +105,35 @@
   &.positive {
     color: #2ecc71;
   }
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.coin-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.coin-symbol {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-right: 0.5rem;
+}
+
+.coin-fullname {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+}
 
   &.negative {
     color: #e74c3c;
   }
-}
+
 
 .timeframe-select {
   background: #f8f9fa;
@@ -187,6 +211,10 @@
 @media (max-width: 576px) {
   .price-change {
     display: none;
+  }
+
+  .timeframe-select {
+    width: 100%;
   }
 
   .timeframe-select {
